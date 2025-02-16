@@ -24,7 +24,8 @@
                         <label>Email<span class="text-danger">*</span></label>
                         <div class="input-group">
                             <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
-                            <input type="text" class="form-control" placeholder="Enter Email" name="email">
+                            <input type="text" class="form-control" placeholder="Enter Email" name="email"
+                                required>
                         </div>
                     </div>
 
@@ -32,8 +33,12 @@
                         <label>Password<span class="text-danger">*</span></label>
                         <div class="input-group">
                             <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
-                            <input type="text" class="form-control" placeholder="Enter Password" name="password">
+                            <input type="text" class="form-control" placeholder="Enter Password" name="password"
+                                required>
                         </div>
+                    </div>
+                    <div class="col-12">
+                        <a href="{{ route('registrasi.tampil') }}" class="text-decoration-none">Belum Punya Akun ?</a>
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary px-lg-5 float-end mt-4">Login</button>

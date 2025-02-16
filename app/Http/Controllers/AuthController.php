@@ -40,10 +40,17 @@ class AuthController extends Controller
     {
         $data = $request->only('email', 'password');
         if (Auth::attempt($data)) {
-            $request->session()->regenerate();
-            return redirect()->route('welcome');
+            $user = Auth::user();
+
+            if ($user->role == 'admin') {
+                $request->session()->regenerate();
+                return redirect()->route('dashboard');
+            } else {
+                $request->session()->regenerate();
+                return redirect()->route('welcome');
+            }
         } else {
-            return redirect()->route('login')->with('gagal', 'Email atau Password salah.');
+            return redirect()->route('login')->with('gagal', 'Email atau Password anda salah');
         }
     }
 

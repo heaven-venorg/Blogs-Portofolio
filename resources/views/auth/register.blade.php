@@ -24,14 +24,15 @@
                         <label>Name<span class="text-danger">*</span></label>
                         <div class="input-group">
                             <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
-                            <input type="text" class="form-control" placeholder="Enter Name" name="name">
+                            <input type="text" class="form-control" placeholder="Enter Name" name="name" required>
                         </div>
                     </div>
                     <div class="col-12">
                         <label>Email<span class="text-danger">*</span></label>
                         <div class="input-group">
                             <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
-                            <input type="email" class="form-control" placeholder="Enter Email" name="email">
+                            <input type="email" class="form-control" placeholder="Enter Email" name="email"
+                                required>
                         </div>
                     </div>
 
@@ -39,7 +40,8 @@
                         <label>Password<span class="text-danger">*</span></label>
                         <div class="input-group">
                             <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
-                            <input type="password" class="form-control" placeholder="Enter Password" name="password">
+                            <input type="password" class="form-control" placeholder="Enter Password" name="password"
+                                required>
                         </div>
                     </div>
                     <div class="col-12">
