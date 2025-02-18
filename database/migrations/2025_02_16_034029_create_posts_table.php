@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('content');
             $table->string('visibility')->default('public');
             $table->string('author');
+            $table->string('author_update')->nullable();
             $table->timestamps();
         });
     }

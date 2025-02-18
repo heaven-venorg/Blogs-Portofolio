@@ -13,6 +13,7 @@ class Post extends Model
         'title',
         'content',
         'author',
+        'author_update',
         'visibility'
     ];
 }

@@ -21,10 +21,11 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Ttile</th>
+                        <th>Title</th>
                         <th>Content</th>
                         <th>Visibility</th>
                         <th>Author</th>
+                        <th>Author Update</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -36,9 +37,24 @@
                             <td>{{ Str::limit($post->content, 30, ' ...') }}</td>
                             <td>{{ $post->visibility }}</td>
                             <td>{{ $post->author }}</td>
+                            @if ($post->author_update == null)
+                                <td>Belum Diupdate</td>
+                            @else
+                                <td>{{ $post->author_update }}</td>
+                            @endif
                             <td>
-                                <a href="#!">Edit</a>
-                                <a href="#!">Delete</a>
+                                <div class="d-flex gap-3 justify-content-center">
+                                    <a href="{{ route('post.edit', $post->id) }}"
+                                        class="btn p-0 btn-link text-decoration-none fs-6 text-warning"><i
+                                            class="bi bi-pencil-square"></i></a>
+                                    <form action="{{ route('post.destroy', $post->id) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="btn btn-link text-decoration-none fs-6 p-0 text-danger"><i
+                                                class="bi bi-trash3-fill"></i></button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach

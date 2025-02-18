@@ -30,8 +30,10 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/', [PostController::class, 'index'])->name('post.index');
             Route::get('create', [PostController::class, 'create'])->name('post.create');
             Route::post('create', [PostController::class, 'store'])->name('post.store');
-            Route::get('edit',  [PostController::class, 'edit'])->name('post.edit');
-            Route::post('edit', [PostController::class, 'update'])->name('post.update');
+            Route::get('{id}/edit',  [PostController::class, 'edit'])->name('post.edit');
+            Route::put('{id}/edit', [PostController::class, 'update'])->name('post.update');
+            Route::delete('{id}/delete', [PostController::class, 'destroy'])->name('post.destroy');
+            Route::post('upload', [PostController::class, 'uploadImage'])->name('post.upload');
         });
     });
 
