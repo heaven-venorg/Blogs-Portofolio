@@ -32,10 +32,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
+                            href="{{ route('page.index') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
+                            href="{{ route('page.about') }}">About</a></li>
                     <li class="nav-item dropdown" id="idLogin">
                         @if (Auth::user())
                             <a class="nav-link px-lg-3 py-3 py-lg-4 dropdown-toggle" data-bs-toggle="dropdown"
@@ -56,19 +56,6 @@
             </div>
         </div>
     </nav>
-    <!-- Page Header-->
-    <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
-        <div class="container position-relative px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    <div class="site-heading">
-                        <h1>VenORG Blogs</h1>
-                        <span class="subheading">A Blog Portfolio</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
     <!-- Main Content-->
     @yield('content')
     <!-- Footer-->

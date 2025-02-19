@@ -36,7 +36,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-Route::get('/', [ViewController::class, 'index'])->name('page.index');
+Route::prefix('/')->group(function () {
+    Route::get('', [ViewController::class, 'index'])->name('page.index');
+    Route::get('/about', function () {
+        return view('page.about');
+    })->name('page.about');
+    Route::get('/show/{title}', [ViewController::class, 'showPost'])->name('page.show');
+});
 
 Route::get('register', [AuthController::class, 'createRegistrasi'])->name('registrasi.tampil');
 Route::post('register', [AuthController::class, 'storeRegistrasi'])->name('registrasi.store');

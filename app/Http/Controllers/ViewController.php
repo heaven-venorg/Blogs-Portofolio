@@ -13,4 +13,10 @@ class ViewController extends Controller
         $posts = Post::latest()->get();
         return view('page.index', compact('posts'));
     }
+
+    public function showPost(string $title)
+    {
+        $post = Post::where('title', $title)->firstOrFail();
+        return view('page.show', compact('post'));
+    }
 }
