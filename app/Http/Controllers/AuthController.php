@@ -47,7 +47,7 @@ class AuthController extends Controller
                 return redirect()->route('dashboard');
             } else {
                 $request->session()->regenerate();
-                return redirect()->route('welcome');
+                return redirect()->route('page.index');
             }
         } else {
             return redirect()->route('login')->with('gagal', 'Email atau Password anda salah');

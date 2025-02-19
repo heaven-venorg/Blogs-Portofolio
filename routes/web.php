@@ -2,15 +2,11 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ViewController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', function () {
-        return view('welcome');
-    })->name('welcome');
-
-
     Route::middleware(AdminMiddleware::class)->group(function () {
         Route::get('dashboard', function () {
             return view('admin.home');
@@ -39,6 +35,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });
+
+Route::get('/', [ViewController::class, 'index'])->name('page.index');
 
 Route::get('register', [AuthController::class, 'createRegistrasi'])->name('registrasi.tampil');
 Route::post('register', [AuthController::class, 'storeRegistrasi'])->name('registrasi.store');
