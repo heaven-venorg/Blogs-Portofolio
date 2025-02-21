@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -16,10 +17,6 @@ Route::middleware(['auth'])->group(function () {
             return view('admin.post');
         })->name('dashboard.post');
 
-        Route::get('dashboard/user', function () {
-            return view('admin.user');
-        })->name('dashboard.user');
-
         // To Post
         // To Create View
         Route::prefix('dashboard/post')->group(function () {
@@ -30,6 +27,14 @@ Route::middleware(['auth'])->group(function () {
             Route::put('{id}/edit', [PostController::class, 'update'])->name('post.update');
             Route::delete('{id}/delete', [PostController::class, 'destroy'])->name('post.destroy');
             Route::post('upload', [PostController::class, 'uploadImage'])->name('post.upload');
+        });
+
+        // To User
+        Route::prefix('dashboard/user')->group(function () {
+            Route::get('', [UserController::class, 'index'])->name('user.index');
+            Route::get('{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+            Route::put('{id}/edit', [UserController::class, 'update'])->name('user.update');
+            Route::delete('{id}/delete', [UserController::class, 'destroy'])->name('user.destroy');
         });
     });
 
