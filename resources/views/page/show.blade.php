@@ -1,4 +1,4 @@
-@extends('page.layout.indexShow')
+@extends('page.layout.index')
 @section('content')
     <header class="masthead" style="background-image: url('assets/img/about-bg.jpg')">
         <div class="container position-relative px-4 px-lg-5">
