@@ -27,8 +27,8 @@ class PostController extends Controller
         ]);
 
         Post::create([
-            'title' => $request->input('title'),
-            'content' => $request->input('content'),
+            'title' => htmlspecialchars($request->input('title')),
+            'content' => htmlspecialchars($request->input('content')),
             'author' => Auth::user()->name
         ]);
 
@@ -51,9 +51,9 @@ class PostController extends Controller
         ]);
 
         $post->update([
-            'title' => $request->input('title'),
-            'content' => $request->input('content'),
-            'visibility' => $request->input('visibility'),
+            'title' => htmlspecialchars($request->input('title')),
+            'content' => htmlspecialchars($request->input('content')),
+            'visibility' => htmlspecialchars($request->input('visibility')),
             'author_update' => Auth::user()->name
         ]);
 

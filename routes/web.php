@@ -41,7 +41,7 @@ Route::prefix('/')->group(function () {
     Route::get('/about', function () {
         return view('page.about');
     })->name('page.about');
-    Route::get('/show/{title}', [ViewController::class, 'showPost'])->name('page.show');
+    Route::get('/show/{slug}', [ViewController::class, 'showPost'])->name('page.show');
 });
 
 Route::get('register', [AuthController::class, 'createRegistrasi'])->name('registrasi.tampil');

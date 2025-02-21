@@ -7,7 +7,7 @@
         </ol>
         <div class="card mb-4">
             @if (session('success'))
-                <div class="alert alert-success">{{ session('success') }}</div>
+                <div class="alert alert-success" id="successAlert">{{ session('success') }}</div>
             @endif
 
             <div class="card-header d-flex justify-content-between align-items-center">
@@ -35,7 +35,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ Str::limit($post->title, 30, ' ...') }}</td>
-                                <td>{{ Str::limit($post->content, 30, ' ...') }}</td>
+                                <td> {!! htmlspecialchars_decode(Str::limit($post->content, 20, ' ...')) !!}</td>
                                 <td>{{ $post->visibility }}</td>
                                 <td>{{ $post->author }}</td>
                                 @if ($post->author_update == null)

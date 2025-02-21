@@ -2,6 +2,9 @@
 @section('content')
     <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center w-100">
         <h1>Form Edit Postingan</h1>
+        @if (session('error'))
+            <div class="alert alert-danger">{{ session('error') }}</div>
+        @endif
         <form action="{{ route('post.update', $post->id) }}" method="post" class="w-75 d-flex flex-column gap-2">
             @csrf
             @method('PUT')
@@ -10,7 +13,7 @@
             @if ($errors->has('title'))
                 <div class="alert alert-warning">Title Wajib Diisi</div>
             @endif
-            <textarea name="content" rows="15" class="form-control" placeholder="Masukan content artikel">{{ $post->content }}</textarea>
+            <textarea name="content" rows="15" class="form-control" placeholder="Masukan content artikel">{!! htmlspecialchars_decode($post->content) !!}</textarea>
             @if ($errors->has('content'))
                 <div class="alert alert-warning">Content Wajib Diisi</div>
             @endif

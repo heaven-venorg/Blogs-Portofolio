@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('content');
-            $table->string('visibility')->default('public');
+            $table->string('visibility')->default('Public');
             $table->string('author');
             $table->string('author_update')->nullable();
             $table->timestamps();
